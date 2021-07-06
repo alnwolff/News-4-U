@@ -61,7 +61,7 @@ router.post('/login', (req, res, next) => {
 			}
 			if (bcrypt.compareSync(password, userFromDB.password)) {
 				req.session.user = userFromDB;
-				res.redirect('/main');
+				res.redirect('/');
 			} else {
 				res.render('login', { message: 'Invalid credentials' });
 				return;
@@ -69,6 +69,16 @@ router.post('/login', (req, res, next) => {
 		})
 
 });
+
+router.get('/logout', (req, res, next) =>{
+    req.session.destroy(err => {
+        if (err) {
+            next(err);
+        } else {
+            res.redirect('/login');
+        }
+    })
+})
 
 
 module.exports = router;
