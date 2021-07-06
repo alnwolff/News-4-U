@@ -7,6 +7,7 @@ const userSchema = new Schema({
     unique: true
   },
   password: String,
+  interests: [ String ]
 });
 
 const User = model("User", userSchema);

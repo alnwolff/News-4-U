@@ -1,3 +1,20 @@
 <h1>PROFILE VIEW</h1>
+{{#with user}}
 
-<h2>Welcome, {{user.name}}!</h2>
+<h2>Welcome, {{name}}!</h2>
+
+<h3>Personal information</h3>
+<ul>
+    <li>Name: {{name}}</li>
+    <li>Interests:
+        {{#each interests}}
+          <ul>
+              <li>{{this}}</li>
+          </ul>
+        {{/each}}
+    </li>
+</ul>
+
+{{/with}}
+
+
