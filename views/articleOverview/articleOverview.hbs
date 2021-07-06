@@ -1,3 +1,17 @@
 <h1>Article Overview</h1>
 
 <a href="/profile">Go to profile</a>
+{{#each article}}
+
+
+<h2>
+    {{title}}
+    {{source}}
+    {{author}}
+    {{description}}
+    {{publishedAt}}
+    {{url}}
+
+</h2>
+
+{{/each}}
