@@ -11,7 +11,7 @@ router.get('/login', (req, res, next) => {
 })
 
 router.post('/signup', (req, res, next) => {
-    const {name, username, password} = req.body;
+    const {name, username, password, interests} = req.body;
 
     if (name.length === 0 || username.length === 0) {
         res.render('auth/signup', {message: 'The Name and Username cannot be empty'});
@@ -19,7 +19,12 @@ router.post('/signup', (req, res, next) => {
     }
 
     if (password.length < 5) {
-        res.render('auth/signup', {message: 'The Password must have at least 8 characters'});
+        res.render('auth/signup', {message: 'The Password must have at least 5 characters'});
+        return;
+    }
+
+    if (interests === undefined) {
+        res.render('auth/signup', {message: 'You must select at least one Interest'});
         return;
     }
 
@@ -33,7 +38,7 @@ router.post('/signup', (req, res, next) => {
                 const hash = bcrypt.hashSync(password, salt);
                 console.log({hash});
 
-                User.create({username: username, password: hash})
+                User.create({name: name, username: username, password: hash, interests: interests})
                     .then(createdUser => {
                         console.log(createdUser)
                         res.redirect('login');
@@ -61,7 +66,7 @@ router.post('/login', (req, res, next) => {
 			}
 			if (bcrypt.compareSync(password, userFromDB.password)) {
 				req.session.user = userFromDB;
-				res.redirect('/');
+				res.redirect('/articleoverview');
 			} else {
 				res.render('login', { message: 'Invalid credentials' });
 				return;
