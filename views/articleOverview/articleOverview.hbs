@@ -1,17 +1,19 @@
-<h1>Article Overview</h1>
+<h1>Newsfeed</h1>
 
 <a href="/profile">Go to profile</a>
 {{#each article}}
 
+{{!-- Next: figure out HTML structure of Article --}}
+<h2>{{title}}</h2>
 
-<h2>
-    {{title}}
-    {{source}}
-    {{author}}
-    {{description}}
-    {{publishedAt}}
-    {{url}}
+<h3>{{author}}</h3>
 
-</h2>
+<p>{{publishedAt}}</p>
+
+<p>{{description}}</p>
+
+<a href="{{url}}">{{url}}</a>
+
+
 
 {{/each}}
