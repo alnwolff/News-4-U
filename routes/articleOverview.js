@@ -36,11 +36,12 @@ router.get("/articleoverview", (req, res, next) => {
         from: "2021-07-05",
         language: 'en',
         sortBy: 'relevancy',
-        page: 2
+        page: 1
         }).then(articleList => {
-        console.log(articleList);
-        res.render("articleOverview/articleOverview.hbs", {article: articleList.articles});
-        });
+          console.log(articleList);
+
+          res.render("articleOverview/articleOverview.hbs", {article: articleList.articles});
+          });
     })
 
     .catch((err) => {

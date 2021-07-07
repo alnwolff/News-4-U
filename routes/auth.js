@@ -41,7 +41,7 @@ router.post('/signup', (req, res, next) => {
                 User.create({name: name, username: username, password: hash, interests: interests})
                     .then(createdUser => {
                         console.log(createdUser)
-                        res.redirect('login');
+                        res.redirect('/login');
                     })
                     .catch(err => {
                         next(err);
@@ -61,14 +61,14 @@ router.post('/login', (req, res, next) => {
 	User.findOne({ username: username })
 		.then(userFromDB => {
 			if (userFromDB === null) {
-				res.render('login', { message: 'Invalid credentials' });
+				res.render('auth/login', { message: 'Invalid credentials' });
 				return;
 			}
 			if (bcrypt.compareSync(password, userFromDB.password)) {
 				req.session.user = userFromDB;
 				res.redirect('/articleoverview');
 			} else {
-				res.render('login', { message: 'Invalid credentials' });
+				res.render('auth/login', { message: 'Invalid credentials' });
 				return;
 			}
 		})
