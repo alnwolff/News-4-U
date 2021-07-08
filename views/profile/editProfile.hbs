@@ -1,0 +1,18 @@
+<h1>Edit your Interests</h1>
+
+<form action="/profile/edit" method="POST">
+
+    <label for="interests">Interests:</label>
+    <select name="interests" id="interests" multiple>
+        <option value="Economy">Economy</option>
+        <option value="Video games">Video Games</option>
+        <option value="Music">Music</option>
+        <option value="Movies">Movies</option>
+    </select>
+
+    <button type="submit">Accept changes</button>
+</form>
+
+{{#if message}}
+    <p style="color: rgb(204, 27, 110)">{{message}}</p>
+{{/if}}
