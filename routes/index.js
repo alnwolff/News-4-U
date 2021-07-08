@@ -2,6 +2,18 @@ const router = require("express").Router();
 const User = require('../models/User');
 const Article = require("../models/Article");
 
+//auth middleware
+
+const loginCheck = () => {
+  return (req, res, next) => {
+    if (req.session.user) {
+      next();
+    } else {
+      res.redirect('/login');
+    }
+  }
+}
+
 
 
 /* GET home page */
@@ -10,7 +22,7 @@ router.get("/", (req, res, next) => {
 });
 
 
-router.get('/readlater', (req, res, next) => {
+router.get('/readlater', loginCheck(), (req, res, next) => {
   User.findById(req.session.user._id)
   .populate('readLater')
   .then(userFromDB => {
@@ -21,7 +33,7 @@ router.get('/readlater', (req, res, next) => {
   })
 })
 
-router.get('/readLater/:id/delete', (req, res, next) => {
+router.get('/readLater/:id/delete', loginCheck(), (req, res, next) => {
   Article.findById(req.params.id)
       .then(articleFromDB =>{
           User.findById(req.session.user._id)
