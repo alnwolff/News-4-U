@@ -1,5 +1,10 @@
+
+header{
+  padding: -10px;
+}
+
 body {
-  padding: 50px;
+  padding: 10px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #2C2D30;
 }
@@ -20,7 +25,7 @@ h3 {
   color: #A8DE98;
 }
 
-a, p, li {
+a, p, li, label, h4, h5 {
   color: white;
 }
 
