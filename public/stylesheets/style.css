@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #2C2D30;
 }
 
 a {
@@ -8,5 +9,36 @@ a {
 }
 
 h1 {
-  color: 15px;
+  color: #C7B8DE;
 }
+
+h2 {
+  color: #D7F1F5;
+}
+
+h3 {
+  color: #A8DE98;
+}
+
+a, p, li {
+  color: white;
+}
+
+.nav-bar {
+  padding: 0
+}
+
+
+.card-columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  }
+
+
+/* base colour: #2C2D30 */
+/* colour 1: #B8CBDE */
+/* colour 2: #D7F1F5 */
+/* colour 3: #B8DED4 */
+/* colour 4: #D7F7E2 */

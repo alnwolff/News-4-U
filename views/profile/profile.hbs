@@ -1,4 +1,4 @@
-<h1>PROFILE VIEW</h1>
+<h1>Profile</h1>
 {{#with user}}
 
 <h2>Welcome, {{name}}!</h2>
@@ -15,18 +15,30 @@
         <a href="/profile/edit">Edit your Interests</a>
     </li>
 </ul>
+<br>
+<br>
+<br>
 
 <h3>Read Later Articles:</h3>
 
 {{#if readLater}}
     {{#each readLater}}
+    <div class="card-columns">
+        <a href="{{url}}"><div class="card" style="width: 50em;"></a>
+        <img class="card-img-top p-2" src="{{urlToImage}}" alt="{{title}}">
         
-        <a href="{{url}}">
+            <a href="{{url}}"><h5 class="card-title text-dark m-2 ">{{title}}</h5></a>
+            <p class="card-text text-dark m-2">{{description}}</p>
+            <a href="/profile/readLater/{{_id}}/delete" class="btn btn-dark" style="background-color: #DF0A0B; border-color: white">Delete</a>
+    </div>
+</div>
+<br>
+        {{!-- <a href="{{url}}">
             <h2>{{title}}</h2>
             <img src="{{urlToImage}}" alt="{{title}}" width="300" height="200">
         </a>
         
-        <a href="/profile/readLater/{{_id}}/delete">❌</a>
+        <a href="/profile/readLater/{{_id}}/delete">❌</a> --}}
     {{/each}}
 {{else}}
 <h4>There are no articles to Read Later</h4>

@@ -1,10 +1,7 @@
 <h1>Newsfeed</h1>
-
-<a href="/profile">Go to profile</a>
-<a href="/readlater">Go to articles you want to read later</a>
 {{#each article}}
 
-<h2>{{title}}</h2>
+{{!-- <h2>{{title}}</h2>
 
 <h3>{{author}}</h3>
 
@@ -12,11 +9,24 @@
 
 <p>{{description}}</p>
 
-<a href="{{url}}">{{url}}</a>
+<a href="{{url}}">{{url}}</a> --}}
+
+    <div class="card-columns">
+        <a href="{{url}}"><div class="card" style="width: 50em;"></a>
+        <a href="{{url}}"><img class="card-img-top p-2" src="{{urlToImage}}" alt="{{title}}"></a>
+            <a href="{{url}}"><h2 class="card-title text-dark m-2 ">{{title}}</h2></a>
+            <h3 class="card-text text-dark m-2">{{author}}</h3>
+            <p class="card-text text-dark m-2">{{publishedAt}}</p>
+            <p class="card-text text-dark m-2">{{description}}</p>
+            {{!-- <a href="getArticle({{json this}})" class="btn btn-dark" style="background-color: #2C2D30;"> Read Later</a> --}}
+            <button onclick="getArticle({{json this}})" class="btn btn-dark" style="background-color: #A8DE98; border-color: white; "> Read Later</button>
+    </div>
+</div>
+<br>
 
 {{!-- <button onclick='(function(){ console.log('{{this}}'); })()'>Read later</button> --}}
 
-<button onclick="getArticle({{json this}})"> Read Later</button>
+{{!-- <button onclick="getArticle({{json this}})"> Read Later</button> --}}
 
 
 {{/each}}

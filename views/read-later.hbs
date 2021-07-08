@@ -1,15 +1,36 @@
-<h1>READ LATER</h1>
+<h1>Read Later</h1>
 
 
 {{#with user}}
 
 <h2>Hey {{name}}, here is the list of the articles you'd like to read</h2>
-
+{{!-- 
 {{#if readLater}}
     {{#each readLater}}
         <a href="{{url}}"><h2>{{title}}</h2></a>
         <a href="{{url}}"><img src="{{urlToImage}}" alt="{{title}}" width="300" height="200"></a>
+    {{/each}} --}}
+
+{{#if readLater}}
+    {{#each readLater}}
+    <div class="card-columns">
+        <a href="{{url}}"><div class="card" style="width: 50em;"></a>
+        <a href="{{url}}"><img class="card-img-top p-2" src="{{urlToImage}}" alt="{{title}}"></a>
+        
+            <a href="{{url}}"><h5 class="card-title text-dark m-2 ">{{title}}</h5></a>
+            <p class="card-text text-dark m-2">{{description}}</p>
+            <a href="/profile/readLater/{{_id}}/delete" class="btn btn-dark" style="background-color: #DF0A0B; border-color: white">Delete</a>
+    </div>
+</div>
+<br>
+        {{!-- <a href="{{url}}">
+            <h2>{{title}}</h2>
+            <img src="{{urlToImage}}" alt="{{title}}" width="300" height="200">
+        </a>
+        
+        <a href="/profile/readLater/{{_id}}/delete">❌</a> --}}
     {{/each}}
+    
 {{else}}
 <h4>There are no articles you would like to read later</h4>
 {{/if}}
