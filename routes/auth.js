@@ -2,6 +2,7 @@ const router = require("express").Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 
+
 router.get('/signup', (req, res, next) => {
     res.render('auth/signup');
 })
@@ -38,7 +39,7 @@ router.post('/signup', (req, res, next) => {
                 const hash = bcrypt.hashSync(password, salt);
                 console.log({hash});
 
-                User.create({name: name, username: username, password: hash, interests: interests})
+                User.create({name, username, password: hash, interests})
                     .then(createdUser => {
                         console.log(createdUser)
                         res.redirect('/login');

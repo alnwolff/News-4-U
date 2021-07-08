@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const Article = require("../models/Article");
 const User = require('../models/User');
+const { uploader, cloudinary } = require('../config/cloudinary');
+
 
 
 /* GET home page */
@@ -19,7 +21,15 @@ router.get('/profile', (req, res, next) => {
 });
 
 router.get('/profile/edit', (req, res, next) => {
-    res.render('profile/editProfile');
+    User.findById(req.session.user._id)
+        .then(userFromDB => {
+            // console.log(userFromDB)
+            res.render('profile/editProfile', {user: userFromDB});
+        })
+
+        .catch((err) => {
+            next(err);
+        })
 });
 
 router.get('/profile/readLater/:id/delete', (req, res, next) => {
@@ -52,23 +62,47 @@ router.get('/profile/readLater/:id/delete', (req, res, next) => {
         })
 });
 
-router.post('/profile/edit', (req, res, next) => {
-    const {interests} = req.body;
+router.post('/profile/edit', uploader.single('profile-pic'), (req, res, next) => {
+    const {name, interests} = req.body;
 
-    if (interests === undefined) {
-        res.render('profile/editProfile', {message: 'You must select at least one Interest'});
-        return;
-    }
+    User.findById(req.session.user._id)
+        .then(userFromDB => {
+            let imgPath = userFromDB.imgPath;
+            let imgName = userFromDB.imgName;
+            let publicId = userFromDB.publicId;
 
-    User.findByIdAndUpdate(req.session.user._id, {interests}, {new:true})
-        .then(userUpdated => {
-            console.log(userUpdated);
-            res.redirect('/profile');
-        })
+            if (interests === undefined) {
+                res.render('profile/editProfile', {user: userFromDB, message: 'You must select at least one Interest'});
+                return;
+            }
+
+            if (name.length === 0) {
+                res.render('profile/editProfile', {user: userFromDB, message: 'The Name cannot be empty'});
+                return;
+            }
+            
+            if (req.file) {
+                imgPath = req.file.path;
+                imgName = req.file.originalname;
+                publicId = req.file.filename;
+            }
+            
+            User.findByIdAndUpdate(req.session.user._id, {name, interests, imgPath, imgName, publicId})
+                .then(userUpdated => {
+                    console.log(userUpdated);
+                    res.redirect('/profile');
+                })
+
+                .catch((err) => {
+                    next(err);
+                })
+            })
 
         .catch((err) => {
             next(err);
         })
+
+    
 })
 
 
