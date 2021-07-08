@@ -16,7 +16,6 @@ const newsapi = new NewsAPI('5c5f9c0ec00c4cc08ce9d5c4ea66b8b6');
 router.get("/articleoverview", (req, res, next) => {
   User.findById(req.session.user._id)
     .then(userFromDB => {
-
       function addOperator(array) {
         let interests = ''
         for(let i = 0; i < array.length ; i ++) {

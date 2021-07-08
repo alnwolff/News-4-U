@@ -20,8 +20,12 @@
 
 {{#if readLater}}
     {{#each readLater}}
-        <p>{{title}}</p>
-        <img src="{{urlToImage}}" alt="{{title}}" width="300" height="200">
+        
+        <a href="{{url}}">
+            <h2>{{title}}</h2>
+            <img src="{{urlToImage}}" alt="{{title}}" width="300" height="200">
+        </a>
+        
         <a href="/profile/readLater/{{_id}}/delete">❌</a>
     {{/each}}
 {{else}}
