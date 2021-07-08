@@ -9,10 +9,12 @@ const userSchema = new Schema({
   password: String,
   interests: [ String ],
   // readLater: [ String ]
-  readLater: [{
-		type: Schema.Types.ObjectId,
-		ref: 'Article' 
-	}],
+  readLater: [
+      {
+      type: Schema.Types.ObjectId,
+      ref: 'Article' 
+    }
+  ],
 });
 
 const User = model("User", userSchema);

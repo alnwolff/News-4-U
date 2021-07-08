@@ -16,6 +16,15 @@ document.addEventListener(
 // 			console.log(err);
 // 		})
 
+
 function getArticle(obj) {
-  console.log(obj)
+  console.log(obj);
+  axios.post('http://localhost:3000/articleoverview', obj)
+    .then(response => {
+      console.log(response)
+    })
+
+    .catch((err => {
+      console.log(err)
+    }))
 }

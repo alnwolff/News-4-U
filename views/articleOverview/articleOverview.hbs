@@ -13,7 +13,9 @@
 
 <a href="{{url}}">{{url}}</a>
 
-<button onclick='(function(){ console.log('{{this}}'); })()'>Read later</button>
+{{!-- <button onclick='(function(){ console.log('{{this}}'); })()'>Read later</button> --}}
+
+<button onclick="getArticle({{json this}})"> Read Later</button>
 
 
 {{/each}}
