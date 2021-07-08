@@ -22,6 +22,8 @@ router.get("/articleoverview", (req, res, next) => {
         for(let i = 0; i < array.length ; i ++) {
          if (i < array.length -1) {
            interests += array[i] + ' OR '
+         } else if(array.length == 1) {
+           interests += array[i]
          } else {
            interests += array[i]
          }
