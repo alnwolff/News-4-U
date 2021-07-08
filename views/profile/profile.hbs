@@ -12,6 +12,7 @@
               <li>{{this}}</li>
           </ul>
         {{/each}}
+        <a href="/profile/edit">Edit your Interests</a>
     </li>
 </ul>
 
@@ -21,6 +22,7 @@
     {{#each readLater}}
         <p>{{title}}</p>
         <img src="{{urlToImage}}" alt="{{title}}" width="300" height="200">
+        <a href="/profile/readLater/{{_id}}/delete">❌</a>
     {{/each}}
 {{else}}
 <h4>There are no articles to Read Later</h4>
