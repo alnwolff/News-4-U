@@ -19,8 +19,8 @@ document.addEventListener(
 
 function getArticle(obj) {
   console.log(obj);
-  // axios.post('http://localhost:3000/articleoverview', obj)
-  axios.post('https://news4u-app.herokuapp.com/articleoverview', obj)
+  axios.post('http://localhost:3000/articleoverview', obj)
+  // axios.post('https://news4u-app.herokuapp.com/articleoverview', obj)
     .then(response => {
       console.log(response)
     })
