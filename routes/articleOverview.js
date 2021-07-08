@@ -2,6 +2,18 @@ const router = require("express").Router();
 const User = require('../models/User');
 const Article = require('../models/Article');
 
+//auth middleware
+
+const loginCheck = () => {
+  return (req, res, next) => {
+    if (req.session.user) {
+      next();
+    } else {
+      res.redirect('/login');
+    }
+  }
+}
+
 
 // import News API
 const NewsAPI = require('newsapi');
@@ -13,7 +25,7 @@ const newsapi = new NewsAPI('5c5f9c0ec00c4cc08ce9d5c4ea66b8b6');
 // var yesterdayDate = new Date(diff);
 
 /* GET articleOverview page */
-router.get("/articleoverview", (req, res, next) => {
+router.get("/articleoverview", loginCheck(), (req, res, next) => {
   User.findById(req.session.user._id)
     .then(userFromDB => {
       function addOperator(array) {
@@ -52,7 +64,7 @@ router.get("/articleoverview", (req, res, next) => {
     })
 });
 
-router.post('/articleoverview', (req, res, next) => {
+router.post('/articleoverview',  (req, res, next) => {
   console.log(req.body);
   const {source, author, title, description, url, urlToImage, publishedAt, content} = req.body;
   Article.create({source, author, title, description, url, urlToImage, publishedAt, content})

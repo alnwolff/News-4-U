@@ -3,11 +3,21 @@ const Article = require("../models/Article");
 const User = require('../models/User');
 const { uploader, cloudinary } = require('../config/cloudinary');
 
+//auth middleware
 
+const loginCheck = () => {
+    return (req, res, next) => {
+      if (req.session.user) {
+        next();
+      } else {
+        res.redirect('/login');
+      }
+    }
+  }
 
 /* GET home page */
 
-router.get('/profile', (req, res, next) => {
+router.get('/profile', loginCheck(), (req, res, next) => {
   // console.log(req.session.user)
   User.findById(req.session.user._id)
     .populate('readLater')
@@ -20,7 +30,7 @@ router.get('/profile', (req, res, next) => {
     })
 });
 
-router.get('/profile/edit', (req, res, next) => {
+router.get('/profile/edit', loginCheck(), (req, res, next) => {
     User.findById(req.session.user._id)
         .then(userFromDB => {
             // console.log(userFromDB)
@@ -32,7 +42,7 @@ router.get('/profile/edit', (req, res, next) => {
         })
 });
 
-router.get('/profile/readLater/:id/delete', (req, res, next) => {
+router.get('/profile/readLater/:id/delete', loginCheck(), (req, res, next) => {
     Article.findById(req.params.id)
         .then(articleFromDB =>{
             User.findById(req.session.user._id)
