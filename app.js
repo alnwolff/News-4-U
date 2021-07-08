@@ -36,6 +36,17 @@ app.use(
 		})
 	})
 )
+// helper to get the information of the Article
+
+hbs.registerHelper('json', function(context) {
+    return JSON.stringify(context);
+});
+
+// function getArticle(obj) {
+// 	console.log(obj);
+// 	const {author, content, description, publishedAt, source, title, url, urlToImage} = obj;
+//   }
+
 
 // default value for title local
 const projectName = "News-4-U";

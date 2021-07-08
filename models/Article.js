@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const { Schema, model } = require("mongoose");
 
 // Taken from the response objects
-const articleSchema = new Article({
+const articleSchema = new Schema({
     source: Object,
     author: String,
     title: String,

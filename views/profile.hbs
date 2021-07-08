@@ -19,7 +19,8 @@
 
 {{#if readLater}}
     {{#each readLater}}
-        <p>{{this}}</p>
+        <p>{{title}}</p>
+        <img src="{{urlToImage}}" alt="{{title}}" width="300" height="200">
     {{/each}}
 {{else}}
 <h4>There are no articles to Read Later</h4>
