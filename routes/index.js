@@ -20,4 +20,16 @@ router.get('/profile', (req, res, next) => {
     })
 })
 
+
+router.get('/readlater', (req, res, next) => {
+  User.findById(req.session.user._id)
+  .populate('readLater')
+  .then(userFromDB => {
+    res.render('read-later', {user: userFromDB});
+  })
+  .catch((err) => {
+    next(err);
+  })
+})
+
 module.exports = router;
