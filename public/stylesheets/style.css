@@ -1,10 +1,7 @@
 
-header{
-  padding: -10px;
-}
-
 body {
-  padding: 10px;
+  padding: 0px;
+  margin: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #2C2D30;
 }
@@ -14,11 +11,16 @@ a {
 }
 
 h1 {
-  color: #C7B8DE;
+  color: white;
+  font-size: 7.5rem;
+  text-shadow: 3px 3px 6px black;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 h2 {
-  color: #D7F1F5;
+  color: #abbeb4;
+  font-size: 6.5rem;
+  text-shadow: 3px 3px 6px black;
 }
 
 h3 {
@@ -29,10 +31,6 @@ a, p, li, label, h4, h5 {
   color: white;
 }
 
-.nav-bar {
-  padding: 0
-}
-
 
 .card-columns {
   display: flex;
@@ -40,6 +38,119 @@ a, p, li, label, h4, h5 {
   justify-content: center;
   align-items: center;
   }
+
+.authbttn {
+    margin: 0px 5px;
+}
+
+#title {
+    width: 100vw;
+    height: 60vh;
+    background-image: url('/images/banner-bg.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#title p {
+    color: #abbeb4;
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px black;
+}
+#intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5vh;
+}
+
+#intro p {
+  text-align: center;
+  width: 45vw;
+  font-size: 1.5rem;
+}
+
+.buttons {
+  display: flex;
+  width: 10vw;
+  justify-content: space-between;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #434549;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+#container input {
+  margin-bottom: 15px;
+}
+
+#container button {
+  margin-top: 15px;
+}
+#container select {
+  width: 13vw;
+  text-align: center;
+}
+
+#container input {
+  text-align: center;
+}
+
+#signupButton {
+  text-shadow: 0.5px 0.5px 1px black;
+}
+
+#loginButton {
+  text-shadow: 0.5px 0.5px 1px black;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0px;
+}
+
+#memberCard {
+  background-color: #434549;
+  padding: 20px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 40vw;
+}
+
+#userInfo {
+  text-decoration: none;
+  list-style: none;
+}
+
+#userInfo li {
+  margin: 10px 0px;
+}
+
+#article {
+  margin: 30px 0px;
+}
+
+
 
 
 /* base colour: #2C2D30 */

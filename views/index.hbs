@@ -1,38 +1,43 @@
 <header>
-      <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark p--"
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/articleoverview">Newsfeed</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/profile">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/readlater">Read Later</a>
-        </li>
-          <a href="/logout" class="btn btn-danger btn-sm btn-success pull-right" data-toggle="button" aria-pressed="false" autocomplete="off">Log out</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
+      <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark p--">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/articleoverview">Newsfeed</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/profile">Profile</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/readlater">Read Later</a>
+                </li>
+                <a href="/signup" id="signupButton" class="btn btn-sm authbttn" style="background-color: #A8DE98; border-color: #A8DE98; color: white" data-toggle="button" aria-pressed="false" autocomplete="off">Sign up</a>
+                </li>
+                </li>
+                <a href="/login" id="loginButton" class="btn btn-secondary btn-sm authbttn" data-toggle="button" aria-pressed="false" autocomplete="off">Log in</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </nav>
 </header>
 
-<h1>Welcome</h1>
+<section id="title">
+    <h1>News 4 U</h1>
+    <p>All the information you want, in just one place</p>
+</section>
 
-{{!-- <button type="submit" class="btn btn-secondary btn-sm" data-toggle="button" aria-pressed="false" autocomplete="off" ></button> --}}
-<a href="/signup" class="btn btn-sm" style="background-color: #A8DE98; border-color: #A8DE98; color: white" data-toggle="button" aria-pressed="false" autocomplete="off">Sign up</a>
-<br>
-<br>
+<section id="intro">
 
-<a href="/login" class="btn btn-secondary btn-sm" data-toggle="button" aria-pressed="false" autocomplete="off">Log in</a>
-<br>
-<br>
-
-<a href="/logout" class="btn btn-danger btn-sm" data-toggle="button" aria-pressed="false" autocomplete="off">Log out</a>
+    <div>
+        <p>Tell us about your interests, and we will take care of the rest. All the news about the things that matters to you, in just a couple of clicks. </p>
+    </div>
+    <div class="buttons">
+        <a href="/signup" id="signupButton" class="btn btn-sm" style="background-color: #A8DE98; border-color: #A8DE98; color: white" data-toggle="button" aria-pressed="false" autocomplete="off">Sign up</a>
+        <a href="/login" class="btn btn-secondary btn-sm" data-toggle="button" aria-pressed="false" autocomplete="off">Log in</a>
+    </div>
+</section>

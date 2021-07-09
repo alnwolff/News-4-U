@@ -48,7 +48,7 @@ router.get("/articleoverview", loginCheck(), (req, res, next) => {
         // to: Date.now(),
         // Add id of sources
         // sources:"bbc-news, the-wall-street-journal, google-news, cnn, cbs-news, techcrunch",
-        from: "2021-07-05",
+        from: "2021-07-07",
         language: 'en',
         sortBy: 'relevancy',
         page: 1

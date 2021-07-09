@@ -81,7 +81,7 @@ router.get('/logout', (req, res, next) =>{
         if (err) {
             next(err);
         } else {
-            res.redirect('/login');
+            res.redirect('/');
         }
     })
 })
