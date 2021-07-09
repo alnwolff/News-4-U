@@ -13,6 +13,7 @@ For this project, the task was to create an App from scratch, using all we learn
 ## About "News 4 U"
 <br>
 This app was created to centralize the newest articles and information about your interests. Instead of having to rely on one source only, or depdending on Google's algorithm, this app lets you tailor your own Newsfeed while ensuring you have access to diverse sources and points of view.
+<br>
 Once you create a User, you need to select at least one of the interests on the list, to start receiving the latests news about things that matters to you, in your News Feed. 
 Feel free to save the articles you are interested in, you will be able them to retrieve them in the "Read Later" tab.
 <br>
