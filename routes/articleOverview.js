@@ -17,12 +17,7 @@ const loginCheck = () => {
 
 // import News API
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('5c5f9c0ec00c4cc08ce9d5c4ea66b8b6');
-
-// var todayTimeStamp = new Date(); 
-// var oneDayTimeStamp = 1000 * 60 * 60 * 24; // Milliseconds in a day
-// var diff = todayTimeStamp - oneDayTimeStamp;
-// var yesterdayDate = new Date(diff);
+const newsapi = new NewsAPI('55a7e090588c43a8b6202dcd3c96e2ed');
 
 /* GET articleOverview page */
 router.get("/articleoverview", loginCheck(), (req, res, next) => {
