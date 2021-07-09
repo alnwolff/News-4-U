@@ -1,3 +1,5 @@
+![logo_newsforu 7](https://res.cloudinary.com/di76jljny/image/upload/v1625821467/Screenshot_2021-07-09_at_11.02.04_tbwkpy.png)
+
 # Ironhack Project : "News 4 U" by Raoul Ullens & Alan Sanchez
 
 <br><br>
